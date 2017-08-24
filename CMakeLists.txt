@@ -30,10 +30,10 @@ endif()
 # add own dependencies
 #list(APPEND dpcommon_DEPENDENCIES "<$OWN_DEPENDENCIES>")
 
-add_library     (${PROJECT_NAME} SHARED ${SRCS})
+add_library     (${PROJECT_NAME} INTERFACE)
 
 target_include_directories(
-  ${PROJECT_NAME} PUBLIC
+  ${PROJECT_NAME} INTERFACE
   ${PROJECT_SOURCE_DIR}/h
   #$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/h>
   #$<INSTALL_INTERFACE:h/${PROJECT_NAME}>
