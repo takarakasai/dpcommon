@@ -1,0 +1,6 @@
+project : dpcommon
+type    : lib
+depends :
+# - url : git@server_url/group/repo.git
+#   branch : develop
+#   options : 
