@@ -4,6 +4,9 @@ project(dpcommon)
 
 include("dplink.cmake" OPTIONAL)
 
+find_package( Eigen3 REQUIRED )
+include_directories( EIGEN3_INCLUDE_DIR )
+
 # please add option() here
 # option(<VARIABLE> <DECSCRIPTION> <ON or OFF>)
 # if(VARIABLE)
