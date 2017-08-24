@@ -14,6 +14,15 @@ namespace Dp {
 
     const real PI = 3.14159265359;
     const real PIDEG = 180.0;
+    const real NEAR_ZERO = 1.0e-8;
+
+    inline const bool IsZero (Math::real val) {
+      return (-NEAR_ZERO <= val && val <= NEAR_ZERO) ? true : false;
+    }
+
+    inline const bool NotZero (Math::real val) {
+      return IsZero(val) ? false : true;
+    }
 
     inline const real rad2deg (const real rad) {
       return rad * PIDEG / PI;
@@ -51,6 +60,10 @@ namespace Dp {
 
     inline const Math::real Kgcm2Nm (Math::real kgcm) {
       return kgcm * G / 100.0;   /* Nm --> Ncm --> kgcm */
+    }
+
+    inline Eigen::Matrix3d pInertia (Dp::Math::real mass, Eigen::Vector3d &radius) {
+      return mass * (radius.dot(radius) * Eigen::Matrix3d::Identity() - radius * radius.transpose());
     }
   }
 
